@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>HTML-LABS — Files</title>
+  <style>
+    body{font-family:system-ui,Arial;margin:24px;max-width:1000px}
+    header{display:flex;justify-content:space-between;align-items:center}
+    .file-list{margin-top:18px}
+    .file{margin:6px 0}
+    button{padding:8px 12px;border-radius:6px;border:1px solid #ccc;background:#fafafa;cursor:pointer}
+    iframe{width:100%;height:70vh;border:1px solid #ddd;margin-top:16px}
+    @media(max-width:700px){ iframe{height:50vh} }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HTML-LABS — Project Index</h1>
+    <nav><a href="README.md">README</a></nav>
+  </header>
+
+  <p>Click a file below to open it inside this page:</p>
+
+  <div class="file-list">
+    <div class="file"><button onclick="openPath('index.html')">index.html (root)</button></div>
+    <div class="file"><button onclick="openPath('home.html')">home.html</button></div>
+    <div class="file"><button onclick="openPath('about.html')">about.html</button></div>
+    <div class="file"><button onclick="openPath('contact.html')">contact.html</button></div>
+    <div class="file"><button onclick="openPath('media.html')">media.html</button></div>
+    <div class="file"><button onclick="openPath('form.html')">form.html</button></div>
+    <div class="file"><button onclick="openPath('registration.html')">registration.html</button></div>
+    <div class="file"><button onclick="openPath('map.html')">map.html</button></div>
+    <div class="file"><button onclick="openPath('birds.html')">birds.html</button></div>
+    <div class="file"><button onclick="openPath('heading.html')">heading.html</button></div>
+    <div class="file"><button onclick="openPath('task1.html')">task1.html</button></div>
+    <div class="file"><button onclick="openPath('task2.html')">task2.html</button></div>
+    <!-- add more files here if needed (use relative paths for subfolders) -->
+  </div>
+
+  <iframe id="preview" src="media.html" title="preview"></iframe>
+
+  <script>
+    function openPath(p){
+      document.getElementById('preview').src = p;
+      location.hash = encodeURIComponent(p);
+    }
+    // load file from hash if provided
+    const h = decodeURIComponent(location.hash.replace('#',''));
+    if(h) document.getElementById('preview').src = h;
+  </script>
+</body>
+</html>
